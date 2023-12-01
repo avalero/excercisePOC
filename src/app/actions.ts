@@ -1,5 +1,15 @@
 "use server";
 
+export const validate = async (
+  operands: number[],
+  givenResult: number
+): Promise<{ correct: boolean; result: number }> => {
+  const result = operands.reduce((a, b) => a + b, 0);
+  const correct = result === givenResult;
+  console.log("Validation run server side: ", operands, givenResult, correct);
+  return { correct, result };
+};
+
 export const getOperands = async (
   numOperands: number,
   maxResult: number
@@ -16,6 +26,6 @@ export const getOperands = async (
       )
     );
   }
-  console.log("this is run server side: ", operands);
+  console.log("Generation run server side: ", operands);
   return operands;
 };
