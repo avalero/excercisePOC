@@ -5,6 +5,7 @@ export const getOperands = async (
   maxResult: number
 ): Promise<number[]> => {
   const operands = [];
+  if (!maxResult || !numOperands) return [];
   // generate operands so that max result of addition is maxResult
   for (let i = 0; i < numOperands; i++) {
     // addition of previous operands
